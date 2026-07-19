@@ -1,0 +1,258 @@
+:root {
+    --ink: #16181c;
+    --muted: #5e6670;
+    --paper: #e4e6ea;
+    --panel: rgba(236, 238, 242, 0.92);
+    --line: #9aa1ab;
+    --accent: #b45309;
+    --accent-hover: #92400e;
+    --flag: #c40e0e;
+    --shadow: 0 18px 40px rgba(18, 22, 28, 0.16);
+    --radius: 14px;
+    --font-display: "EB Garamond", Georgia, serif;
+    --font-body: "Source Sans 3", "Segoe UI", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    color-scheme: light;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: var(--font-body);
+    color: var(--ink);
+    background:
+        radial-gradient(ellipse 80% 55% at 12% -10%, #cfd5de 0%, transparent 55%),
+        radial-gradient(ellipse 70% 50% at 100% 0%, #d6d0c8 0%, transparent 50%),
+        linear-gradient(165deg, #e8eaee 0%, #dde1e7 45%, #d4d8df 100%);
+}
+
+.page {
+    width: min(920px, calc(100% - 2rem));
+    margin: 0 auto;
+    padding: 2.5rem 0 3.5rem;
+}
+
+.page-header {
+    margin-bottom: 2rem;
+}
+
+.brand {
+    margin: 0 0 0.35rem;
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 6vw, 3.4rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    color: var(--accent);
+}
+
+.page-header h1 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 3vw, 1.75rem);
+    font-weight: 500;
+    color: var(--ink);
+}
+
+.lede {
+    margin: 0.55rem 0 0;
+    max-width: 36rem;
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+
+.layout {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.panel {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.25rem 1.35rem 1.4rem;
+    backdrop-filter: blur(8px);
+}
+
+.panel h2 {
+    margin: 0 0 1rem;
+    font-family: var(--font-display);
+    font-size: 1.55rem;
+    font-weight: 600;
+}
+
+.field-grid {
+    display: grid;
+    gap: 0.85rem;
+}
+
+@media (min-width: 640px) {
+    .field-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.field {
+    display: grid;
+    gap: 0.35rem;
+}
+
+.field-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+.field-control {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #fff;
+    padding: 0.55rem 0.75rem;
+}
+
+.field-control:focus-within {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(180, 83, 9, 0.18);
+}
+
+.field-prefix {
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.field input {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    font: inherit;
+    font-size: 1.05rem;
+    color: var(--ink);
+}
+
+.field input::-webkit-outer-spin-button,
+.field input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.field input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.btn-primary,
+.btn-secondary {
+    font: inherit;
+    font-weight: 600;
+    border-radius: 999px;
+    padding: 0.7rem 1.35rem;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #faf6f1;
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+}
+
+.btn-secondary {
+    background: transparent;
+    border-color: var(--line);
+    color: var(--ink);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.45);
+}
+
+.placeholder {
+    margin: 0;
+    color: var(--muted);
+}
+
+.output-total {
+    margin: 0 0 0.85rem;
+    font-family: var(--font-display);
+    font-size: 1.45rem;
+    font-weight: 600;
+}
+
+.output-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #1c2128;
+    color: #d8dee6;
+    font-family: ui-monospace, "Cascadia Code", "Segoe UI Mono", monospace;
+    font-size: 0.95rem;
+}
+
+.output-table th,
+.output-table td {
+    padding: 0.7rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(216, 222, 230, 0.12);
+}
+
+.output-table thead th {
+    color: #9aa3af;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-bottom-color: rgba(216, 222, 230, 0.22);
+}
+
+.output-table tbody th {
+    font-weight: 600;
+    color: #e8edf3;
+}
+
+.output-table tbody tr:last-child th,
+.output-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.output-table .output-delta {
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+}
+
+.output-table tbody td:nth-child(2) {
+    font-variant-numeric: tabular-nums;
+}
+
+.output-table tr.is-flagged .output-delta {
+    color: var(--flag);
+    font-weight: 600;
+}
+
+.output-time {
+    margin: 0.9rem 0 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
