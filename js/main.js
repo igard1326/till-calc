@@ -146,7 +146,7 @@ form.addEventListener("submit", (event) => {
 
     // Matches Python_src/main.py (and practice): expected - actual
     const deltas = expected.values.map(
-        (expectedValue, index) => expectedValue - actual.values[index],
+        (expectedValue, index) => actual.values[index] - expectedValue,
     );
 
     renderResults(actual.values, deltas);
